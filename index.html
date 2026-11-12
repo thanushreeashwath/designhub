@@ -1,0 +1,294 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover design competitions, showcase your creativity and track your submissions with DesignHub.">
+  <title>DesignHub — Create. Compete. Inspire.</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header class="navbar">
+  <a href="#" class="logo" data-page="home">design<span>hub.</span></a>
+
+  <nav>
+    <a href="#" data-page="home">Home</a>
+    <a href="#" data-page="explore">Explore</a>
+    <a href="#" data-page="tracking">My Applications</a>
+  </nav>
+
+  <div class="nav-actions">
+    <button class="login-btn" data-page="login">Login</button>
+    <button class="primary-btn" data-page="register">Join Now ↗</button>
+  </div>
+</header>
+
+<main>
+
+<!-- HOME PAGE -->
+<section id="home" class="page active">
+
+  <div class="hero">
+    <div class="hero-content">
+      <span class="eyebrow">✳ THE CREATIVE STUDENT COMMUNITY</span>
+
+      <h1>
+        YOUR IDEAS.<br>
+        YOUR STAGE.<br>
+        <span>YOUR MOMENT.</span>
+      </h1>
+
+      <p>
+        Discover exciting design competitions, showcase
+        your creativity and turn your imagination into
+        something extraordinary.
+      </p>
+
+      <div class="hero-buttons">
+        <button class="primary-btn" data-page="explore">
+          Explore Competitions ↗
+        </button>
+        <button class="outline-btn" data-page="register">
+          Join the Community
+        </button>
+      </div>
+
+      <div class="hero-stats">
+        <div><strong id="competition-count">12+</strong><small>Competitions</small></div>
+        <div><strong>08+</strong><small>Design Categories</small></div>
+        <div><strong>100%</strong><small>Creative Freedom</small></div>
+      </div>
+    </div>
+
+    <div class="hero-art">
+      <div class="art-card orange-card">
+        <span>DESIGN</span>
+        <h2>THINK<br>BEYOND.</h2>
+        <div class="art-circle">✳</div>
+        <small>CREATIVITY HAS NO LIMITS.</small>
+      </div>
+      <div class="floating-note">MAKE<br>IT HAPPEN ↗</div>
+    </div>
+  </div>
+
+  <section class="featured section-padding">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">✳ FIND YOUR NEXT CHALLENGE</span>
+        <h2>Featured <span>competitions.</span></h2>
+      </div>
+      <button class="text-btn" data-page="explore">View all ↗</button>
+    </div>
+    <div id="featured-list" class="competition-grid"></div>
+  </section>
+
+  <section class="cta-section">
+    <h2>GREAT IDEAS<br>DESERVE A <span>STAGE.</span></h2>
+    <p>Start exploring opportunities and let your creativity speak.</p>
+    <button class="dark-btn" data-page="explore">Find your competition ↗</button>
+  </section>
+
+</section>
+
+<!-- EXPLORE PAGE -->
+<section id="explore" class="page section-padding">
+  <span class="eyebrow">✳ DISCOVER OPPORTUNITIES</span>
+  <h1 class="page-title">Explore <span>competitions.</span></h1>
+  <p>Find challenges that match your creativity and skills.</p>
+
+  <div class="search-bar">
+    <input id="search-input" type="search"
+      placeholder="Search competitions...">
+    <select id="category-filter">
+      <option value="all">All Categories</option>
+      <option value="UI/UX">UI/UX Design</option>
+      <option value="Graphic Design">Graphic Design</option>
+      <option value="Architecture">Architecture</option>
+      <option value="Product Design">Product Design</option>
+      <option value="Illustration">Illustration</option>
+    </select>
+    <select id="sort-filter">
+      <option value="latest">Latest</option>
+      <option value="deadline">Closing Soon</option>
+    </select>
+  </div>
+
+  <div id="competition-list" class="competition-grid"></div>
+</section>
+
+<!-- COMPETITION DETAILS -->
+<section id="details" class="page section-padding">
+  <button class="text-btn" data-page="explore">← Back to competitions</button>
+  <div id="competition-details"></div>
+</section>
+
+<!-- SUBMISSION PAGE -->
+<section id="submit" class="page section-padding">
+  <span class="eyebrow">✳ SHOW US WHAT YOU CAN DO</span>
+  <h1 class="page-title">Submit your <span>work.</span></h1>
+
+  <form id="submission-form" class="form-card">
+    <label>Competition</label>
+    <input id="submit-competition" readonly required>
+
+    <label>Project title</label>
+    <input id="project-title" required
+      placeholder="Give your project a name">
+
+    <label>Your name</label>
+    <input id="student-name" required placeholder="Full name">
+
+    <label>Project description</label>
+    <textarea id="project-description" required
+      placeholder="Tell us about your idea..."></textarea>
+
+    <label>Upload your design (PDF or image)</label>
+    <input id="design-file" type="file"
+      accept=".pdf,.png,.jpg,.jpeg" required>
+
+    <label>Portfolio / project link (optional)</label>
+    <input id="portfolio-link" type="url"
+      placeholder="https://">
+
+    <button class="primary-btn" type="submit">
+      Submit my entry ↗
+    </button>
+    <p id="submission-message"></p>
+  </form>
+</section>
+
+<!-- TRACKING PAGE -->
+<section id="tracking" class="page section-padding">
+  <span class="eyebrow">✳ YOUR CREATIVE JOURNEY</span>
+  <h1 class="page-title">My <span>applications.</span></h1>
+  <p>Keep track of your competition entries and deadlines.</p>
+  <div id="applications-list"></div>
+</section>
+
+<!-- LOGIN PAGE -->
+<section id="login" class="page section-padding">
+  <div class="auth-card">
+    <span class="eyebrow">✳ WELCOME BACK</span>
+    <h1>Let's get <span>creative.</span></h1>
+
+    <form id="login-form">
+      <label>Email address</label>
+      <input id="login-email" type="email" required>
+
+      <label>Password</label>
+      <input id="login-password" type="password" required>
+
+      <button class="primary-btn full-btn" type="submit">Login ↗</button>
+      <p id="login-message"></p>
+    </form>
+
+    <p>New here?
+      <a href="#" data-page="register">Create an account</a>
+    </p>
+  </div>
+</section>
+
+<!-- REGISTER PAGE -->
+<section id="register" class="page section-padding">
+  <div class="auth-card">
+    <span class="eyebrow">✳ JOIN THE COMMUNITY</span>
+    <h1>Create your <span>account.</span></h1>
+
+    <form id="register-form">
+      <label>Full name</label>
+      <input id="register-name" required>
+
+      <label>Email address</label>
+      <input id="register-email" type="email" required>
+
+      <label>Design interests</label>
+      <select id="register-interest">
+        <option>UI/UX</option>
+        <option>Graphic Design</option>
+        <option>Architecture</option>
+        <option>Product Design</option>
+        <option>Illustration</option>
+      </select>
+
+      <label>Password</label>
+      <input id="register-password" type="password"
+        minlength="8" required>
+
+      <button class="primary-btn full-btn" type="submit">
+        Create account ↗
+      </button>
+      <p id="register-message"></p>
+    </form>
+
+    <p>Already registered?
+      <a href="#" data-page="login">Login</a>
+    </p>
+  </div>
+</section>
+
+<!-- ADMIN PAGE -->
+<section id="admin" class="page section-padding">
+  <span class="eyebrow">✳ ADMINISTRATION</span>
+  <h1 class="page-title">Admin <span>dashboard.</span></h1>
+
+  <div class="admin-stats">
+    <div class="stat-card">
+      <h2 id="admin-competitions">0</h2>
+      <p>Competitions</p>
+    </div>
+    <div class="stat-card">
+      <h2 id="admin-users">0</h2>
+      <p>Registered users</p>
+    </div>
+    <div class="stat-card">
+      <h2 id="admin-submissions">0</h2>
+      <p>Submissions</p>
+    </div>
+  </div>
+
+  <h2>Add a competition</h2>
+  <form id="admin-form" class="form-card">
+    <label>Competition name</label>
+    <input id="new-name" required>
+
+    <label>Category</label>
+    <select id="new-category">
+      <option>UI/UX</option>
+      <option>Graphic Design</option>
+      <option>Architecture</option>
+      <option>Product Design</option>
+      <option>Illustration</option>
+    </select>
+
+    <label>Deadline</label>
+    <input id="new-deadline" type="date" required>
+
+    <label>Prize details</label>
+    <input id="new-prize" required>
+
+    <label>Description</label>
+    <textarea id="new-description" required></textarea>
+
+    <button class="primary-btn" type="submit">
+      Add competition +
+    </button>
+    <p id="admin-message"></p>
+  </form>
+</section>
+
+</main>
+
+<footer class="footer">
+  <a href="#" class="logo">design<span>hub.</span></a>
+  <p>Made for the next generation of creative minds.</p>
+  <p>© 2026 DesignHub. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
